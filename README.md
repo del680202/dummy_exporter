@@ -21,7 +21,19 @@ $ export GOPATH=$HOME/golang
 $ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 ```
 
-# Deploy by manual
+# Deploy
+
+## Deploy from github
+
+```
+$ USER_NAME=del680202
+$ mkdir -p $GOPATH/src/github.com/$USER_NAME
+$ cd $GOPATH/src/github.com/$USER_NAME
+$ git clone https://github.com/del680202/dummy_exporter.git
+$ cd dummy_exporter/
+```
+
+## Deplo by manual
 
 ```
 # Make project folder, the format is $GOPATH/src/github.com/USER_NAME/PROJECT_NAME, using it to bind github
@@ -46,8 +58,6 @@ $ dep ensure
 $ dep ensure -v
 ```
 
-# Deploy from github
-
 # Test Run
 
 ```
@@ -59,21 +69,6 @@ $ go run main.go
 ```
 $ go build
 $ ./dummy_exporter
-```
-
-# Push Project to Github(Option)
-
-If you deploy this project by manual, you can push it back to github by
-
-1. Create a PROJECT in github
-2. Type command as below
-
-```
-$ git init
-$ git add .
-$ git commit -m "first commit"
-$ git remote add origin https://github.com/$USER_NAME/$PROJECT_NAME.git
-$ git push -u origin master
 ```
 
 When you run dummy_exporter, you can access http://127.0.0.1:8081 to see result
@@ -90,3 +85,17 @@ dummy_gauge_vec_metric{myLabel="hello"} 0
 ...
 ```
 
+# Push Project to Github (Option)
+
+If you deploy this project by manual, you can push it back to github by
+
+1. Create a PROJECT in github
+2. Type command as below
+
+```
+$ git init
+$ git add .
+$ git commit -m "first commit"
+$ git remote add origin https://github.com/$USER_NAME/$PROJECT_NAME.git
+$ git push -u origin master
+```
